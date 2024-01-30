@@ -1,0 +1,28 @@
+<!-- carparts/templates/carparts/car_brand_parts.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ car_brand.name }} Parts</title>
+</head>
+<body>
+    <h1>{{ car_brand.name }} Parts</h1>
+
+    <ul>
+        {% for part in parts %}
+            <li>
+                <a href="{% url 'car_part_detail' part.id %}">
+                    {{ part.name }}
+                    {% if part.photo %}
+                        <img src="{{ part.photo.url }}" alt="{{ part.name }} Photo">
+                    {% endif %}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <p><a href="{% url 'index' %}">Back to Brands</a></p>
+</body>
+</html>

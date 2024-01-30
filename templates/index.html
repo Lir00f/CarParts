@@ -1,0 +1,56 @@
+<!-- carparts/templates/carparts/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Parts Store</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        li {
+            margin: 10px;
+        }
+
+        a {
+            display: block;
+            width: 200px; /* или другая ширина на ваш выбор */
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Car Parts Store</h1>
+
+    <ul>
+        {% for brand in car_brands %}
+            <li><a href="{% url 'car_brand_parts' brand.id %}">{{ brand.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
